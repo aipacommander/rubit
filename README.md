@@ -28,6 +28,7 @@ $ docker run --rm -v $(pwd):/app -w /app -it rubit:latest ruby src/git.rb versio
 * https://docs.ruby-lang.org/ja/latest/class/Zlib=3a=3aGzipWriter.html
 * https://uxmilk.jp/22615
 * https://docs.ruby-lang.org/ja/latest/method/Digest=3a=3aBase/i/hexdigest.html
+* https://koseki.hatenablog.com/entry/2014/04/22/inside-git-1
 
 
 
@@ -39,3 +40,14 @@ total 32
 ```
 
 でけた. インデックスに追加のところがまだわからない.
+
+### cat-fileを実装する
+
+やること
+
+* .git/objects 以下にハッシュ値のファイルが吐き出されるように修正する
+* ハッシュ値を受け取って、該当のobjectsファイルを検索する
+    * 存在しない場合 → メッセージ表示 `fatal: Not a valid object name ${ハッシュ値}`
+    * 存在する場合
+        * `-t` ファイルタイプを表示
+        * `-p` addしたファイルを表示（？）
