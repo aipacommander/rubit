@@ -51,3 +51,16 @@ total 32
     * 存在する場合
         * `-t` ファイルタイプを表示
         * `-p` addしたファイルを表示（？）
+
+```
+$ docker run --rm -v $(pwd):/app -w /app -it rubit:latest ruby src/git.rb cat-file -t be_25f2f5c8c6b805c68be7e78e558f2f5fa5fa6e
+blob 166require_relative 'add'
+
+sub_command = ARGV[0]
+if sub_command == 'version'
+    p sub_command
+elsif sub_command == 'add'
+    file_path = ARGV[1]
+    add(file_path)
+end
+```
