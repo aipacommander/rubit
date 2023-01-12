@@ -67,3 +67,11 @@ elsif sub_command == 'add'
     add(file_path)
 end
 ```
+
+### .git以下に構造を用意して、addやcommitしたらそこを編集できるようにする
+### addしたファイルをindex(ファイル？)に追加するようにする
+
+### addしたファイルをステージングから削除できるようにする
+
+### commitログの仕組みを理解する
+### addしたファイルをcommitしてcommitログを作れるようにする
