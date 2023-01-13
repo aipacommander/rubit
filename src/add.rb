@@ -19,13 +19,19 @@ def add(file_path)
     object_file_name = sha1.hexdigest[2, 40]
 
     # 圧縮ファイルを作成
+    # TODO: 絶対パス的ななにかが必要な気持ち
+    # gitリポジトリ管理化だと、下の階層に潜っても適切に.git以下にファイルを作成してくれるので
+    # その実装が必要
     save_object_dir = ".git-rubit/objects/#{sub_dir_name}"
-    Dir.mkdir(save_object_dir)
+    Dir.mkdir(save_object_dir) unless Dir.exist?(save_object_dir)
+
+    # 同じハッシュ値が作成されていないか確認。存在するならblobは作成しない
     save_object_path = "#{save_object_dir}/#{object_file_name}"
-    Zlib::GzipWriter.open(save_object_path) do |gz|
-        gz.write(store)
+    unless File.exist?(save_object_path)
+        Zlib::GzipWriter.open(save_object_path) do |gz|
+            gz.write(store)
+        end
     end
 
-    # ハッシュ化
     # indexへ追記
 end
