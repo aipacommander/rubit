@@ -1,9 +1,12 @@
 require_relative 'add'
 require_relative 'cat_file'
+require_relative 'init'
 
 sub_command = ARGV[0]
 if sub_command == 'version'
     p sub_command
+elsif sub_command == 'init'
+    init
 elsif sub_command == 'add'
     file_path = ARGV[1]
     add(file_path)

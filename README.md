@@ -68,6 +68,48 @@ elsif sub_command == 'add'
 end
 ```
 
+### `init` を用意する
+
+ディレクトリ構造
+
+- HEAD
+- branches
+- config
+- description
+- hooks(directory)
+- info(directory)
+- objects(directory)
+    - info
+    - pack
+- refs
+    - heads
+    - tags
+
+```bash
+$ docker run --rm -v $(pwd):/app -w /app -it rubit:latest ruby src/git.rb init
+$ tree .git-rubit
+.git-rubit
+├── HEAD
+├── branches
+├── config
+├── description
+├── hooks
+├── objects
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    └── tags
+
+$ docker run --rm -v $(pwd):/app -w /app -it rubit:latest ruby src/git.rb init
+Reinitialized existing Git repository in /app/.git-rubit/
+```
+
+
+### リファレンスを作る
+
+### tree objectを作る
+
 ### .git以下に構造を用意して、addやcommitしたらそこを編集できるようにする
 ### addしたファイルをindex(ファイル？)に追加するようにする
 
