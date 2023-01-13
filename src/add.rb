@@ -19,8 +19,9 @@ def add(file_path)
     object_file_name = sha1.hexdigest[2, 40]
 
     # 圧縮ファイルを作成
-    # save_object_path = "./git/objects/#{sub_dir_name}/#{object_file_name}"
-    save_object_path = "./#{sub_dir_name}_#{object_file_name}"
+    save_object_dir = ".git-rubit/objects/#{sub_dir_name}"
+    Dir.mkdir(save_object_dir)
+    save_object_path = "#{save_object_dir}/#{object_file_name}"
     Zlib::GzipWriter.open(save_object_path) do |gz|
         gz.write(store)
     end

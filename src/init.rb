@@ -1,5 +1,6 @@
 def init
     # 存在するならエラー文を表示する
+    # TODO: ディレクトリ名は定数で管理したほうがよさそう
     if Dir.exist?('.git-rubit')
         puts "Reinitialized existing Git repository in #{Dir.pwd}/.git-rubit/"
         return false
