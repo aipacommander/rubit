@@ -113,6 +113,12 @@ Reinitialized existing Git repository in /app/.git-rubit/
 ### .git以下に構造を用意して、addやcommitしたらそこを編集できるようにする
 ### addしたファイルをindex(ファイル？)に追加するようにする
 
+いまいち仕様がぱっとみえないのでちゃんと整理（理解）する必要あり
+
+* https://engineering.mercari.com/blog/entry/2015-09-14-175300/
+* http://dqn.sakusakutto.jp/2014/03/git_index_staging_data_structure.html
+* https://zenn.dev/akashixi/articles/18e386e810b280
+
 ### addしたファイルをステージングから削除できるようにする
 
 ### commitログの仕組みを理解する
